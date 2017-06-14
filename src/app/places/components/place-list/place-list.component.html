@@ -1,0 +1,4 @@
+<div class="mdl-grid">
+  <app-place-details *ngFor="let place of places | async" [place]="place"
+                     class="mdl-cell mdl-cell--3-col"></app-place-details>
+</div>

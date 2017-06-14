@@ -1,0 +1,28 @@
+<mdl-card class="demo-card-square" mdl-shadow="2">
+  <mdl-card-title mdl-card-expand>
+    <h2 mdl-card-title-text>{{place.name}}</h2>
+  </mdl-card-title>
+  <mdl-card-supporting-text class="container">
+    <app-place-details-map *ngIf="isVisible(tablesDetails.MAP)" [placeId]="place.placeId"></app-place-details-map>
+    <app-place-details-users *ngIf="isVisible(tablesDetails.USERS)" [creator]="place.creator" [users]="place.users"></app-place-details-users>
+  </mdl-card-supporting-text>
+  <mdl-card-actions mdl-card-border>
+    <button (click)="showTab(tablesDetails.MAP)" mdl-button mdl-button-type="icon">
+      <mdl-icon>location_on</mdl-icon>
+    </button>
+    <button mdl-button mdl-button-type="icon">
+      <mdl-icon>apps</mdl-icon>
+    </button>
+    <button (click)="showTab(tablesDetails.USERS)" mdl-button mdl-button-type="icon">
+      <mdl-icon mdl-badge="{{place.users?.length}}" mdl-badge-overlap>group</mdl-icon>
+    </button>
+    <button (click)="deletePlace()" mdl-button mdl-button-type="icon">
+      <mdl-icon>delete</mdl-icon>
+    </button>
+  </mdl-card-actions>
+  <mdl-card-menu>
+    <button mdl-button mdl-button-type="icon" mdl-colored="primary" mdl-ripple>
+      <mdl-icon>thumb_up</mdl-icon>
+    </button>
+  </mdl-card-menu>
+</mdl-card>

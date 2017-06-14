@@ -1,0 +1,17 @@
+<mdl-list *ngIf="creator">
+  <mdl-list-item>
+    <mdl-list-item-primary-content>
+      <mdl-icon mdl-list-item-icon>star</mdl-icon>
+      {{creator.firstName}}
+    </mdl-list-item-primary-content>
+  </mdl-list-item>
+</mdl-list>
+
+<mdl-list *ngFor="let guest of users">
+  <mdl-list-item>
+    <mdl-list-item-primary-content>
+      <mdl-icon mdl-list-item-icon>person</mdl-icon>
+      {{guest.firstname + ' ' + guest.lastname}}
+    </mdl-list-item-primary-content>
+  </mdl-list-item>
+</mdl-list>

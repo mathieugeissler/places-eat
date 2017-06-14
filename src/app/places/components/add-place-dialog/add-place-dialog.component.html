@@ -1,0 +1,30 @@
+<div class="dialog">
+  <h3 class="mdl-dialog__title">Add a place to eat</h3>
+  <div class="mdl-dialog__content" style="text-align: center">
+    <mdl-select label="Where ?" [autocomplete]="true" floating-label (inputChange)="onAutocompleteChange($event)"
+                [(ngModel)]="placeSelected">
+      <mdl-option *ngFor="let c of placesFind" [value]="c">{{c.description}}</mdl-option>
+    </mdl-select>
+
+    <mdl-textfield
+      (click)="pickADate($event)"
+      [value]="selectedDate?.format('LL')"
+      label="When ?"
+      floating-label></mdl-textfield>
+
+    <mdl-select floating-label [(ngModel)]="newPlace.transport" label="How ?">
+      <mdl-option [value]><em>-- Select a Transport --</em></mdl-option>
+      <mdl-option *ngFor="let t of transportList" [value]="t">{{t}}</mdl-option>
+    </mdl-select>
+
+    <mdl-textfield
+      label="Your name"
+      [(ngModel)]="newPlace.creator.firstName"
+      floating-label></mdl-textfield>
+
+    <div id="map"></div>
+  </div>
+  <div class="mdl-dialog__actions">
+    <button (click)="addPlace()" mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple>Go</button>
+  </div>
+</div>
